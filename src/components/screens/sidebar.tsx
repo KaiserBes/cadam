@@ -54,7 +54,10 @@ export function AppSidebar() {
           {session ? (
             <>
               <Avatar>
-                <AvatarImage src={session.user?.image!} alt="Avatar" />
+                <AvatarImage
+                  src={session.user?.image || "/default-avatar.png"}
+                  alt="Avatar"
+                />
                 <AvatarFallback>{session.user?.name?.charAt(0)}</AvatarFallback>
               </Avatar>
               <p className="mb-4 mt-2 text-sm font-semibold">
@@ -70,7 +73,7 @@ export function AppSidebar() {
               </Button>
             </>
           ) : (
-            <LoginButton>
+            <LoginButton asChild>
               <Button className="relative rounded px-[70px] py-2.5 overflow-hidden group bg-green-500 relative hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
                 <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
                 <span className="relative">Войти</span>

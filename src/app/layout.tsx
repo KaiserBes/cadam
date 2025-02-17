@@ -5,7 +5,6 @@ import "./styles/globals.css";
 import { AppSidebar } from "@/components/screens/sidebar";
 import { SessionProvider } from "next-auth/react";
 import { usePathname } from "next/navigation";
-import ReduxProvider from "./store/provider";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -22,9 +21,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             {!hideSidebar && <AppSidebar />}
             <main>
               {!hideSidebar && <SidebarTrigger />}
-              <div className="text-wrap">
-                <ReduxProvider>{children}</ReduxProvider>
-              </div>
+              <div className="text-wrap">{children}</div>
             </main>
           </SidebarProvider>
         </SessionProvider>

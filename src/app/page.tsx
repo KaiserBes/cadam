@@ -1,21 +1,22 @@
-import { AboutPage } from "@/components/screens/about";
-import { auth, signOut } from "../../auth";
+"use client";
 
-const Home = async () => {
-  const session = await auth();
+import { AboutPage } from "@/components/screens/about";
+import { logout } from "../../actions/logout";
+import { useCurrentUser } from "../../hooks/use-current-user";
+
+const Home = () => {
+  const user = useCurrentUser();
+  const signOut = () => {
+    logout();
+  };
   return (
     <>
       <AboutPage />
       <div className="">
-        {JSON.stringify(session)}
-        <form
-          action={async () => {
-            "use server";
-            await signOut();
-          }}
-        >
-          <button type="submit">Sign out</button>
-        </form>
+        {JSON.stringify(user)}
+        <button onClick={signOut} type="submit">
+          Sign out
+        </button>
       </div>
     </>
   );

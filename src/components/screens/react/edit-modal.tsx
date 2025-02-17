@@ -45,7 +45,7 @@ const EditModal: FC = () => {
             <DialogHeader>
               <DialogTitle>Edit profile</DialogTitle>
               <DialogDescription>
-                Make changes to your profile here. Click save when you're done.
+                Make changes to your profile here. Click save when you are done.
               </DialogDescription>
             </DialogHeader>
             <ProfileForm />
@@ -67,7 +67,7 @@ const EditModal: FC = () => {
           <DrawerHeader className="text-left">
             <DrawerTitle> Edit profile</DrawerTitle>
             <DrawerDescription>
-              Make changes to your profile here. Click save when you're done.
+              Make changes to your profile here. Click save when you are done.
             </DrawerDescription>
           </DrawerHeader>
           <ProfileForm className="px-4" />
@@ -82,7 +82,7 @@ const EditModal: FC = () => {
   );
 };
 
-function ProfileForm({ className }: React.ComponentProps<"form">) {
+function ProfileForm({}: React.ComponentProps<"form">) {
   const { data: session, update } = useSession();
   const [username, setUsername] = React.useState(session?.user?.name || "");
 
